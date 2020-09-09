@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!-- displays site properly based on user's device -->
 
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
@@ -12,17 +12,55 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="./styles/main.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
 
-    IP Address Tracker Search for any IP address or domain IP Address Location Timezone UTC
+    <header>
+        <div class="container">
+            <div class="header">
+                <form class="ip_form">
+                    <label for="#ip_input">IP Address Tracker</label>
+                    <input class="ip_input" id="ip_input" type="text" placeholder="IP Address Tracker Search for any IP address or domain" name="ipAdressOrDomain" />
+                    <input class="ip_submit" type="submit" value="" />
+                </form>
+                <div class="details">
+                    <ul class="details_list">
+                        <figcaption class="details_element-header">ip address</figcaption>
+                        <li class="details_element ipAddress"></li>
+
+                        <figcaption class="details_element-header">location</figcaption>
+                        <li class="details_element location"></li>
+
+                        <figcaption class="details_element-header">timezone</figcaption>
+                        <li class="details_element timezone"></li>
+
+                        <figcaption class="details_element-header">isp</figcaption>
+                        <li class="details_element isp"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="map">
+            <div id="mapid"></div>
+        </section>
+    </main>
+
     <!-- add offset value dynamically using the API -->
     ISP
+    <footer>
+        <div class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your Name Here</a>.
+        </div>
+    </footer>
 
-    <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your Name Here</a>.
-    </div>
+    <script src="./js/app.js" defer></script>
 </body>
 
 </html>

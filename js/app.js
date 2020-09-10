@@ -33,7 +33,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 isp.innerHTML = data.isp;
                 lat = Number(data.location.lat);
                 lng = Number(data.location.lng);
-
                 drawMap(lat, lng);
             })
             .catch(err => console.log(err))
@@ -43,8 +42,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // creating map in #mapid div
     function drawMap(lng = 51.505, lat = -0.09) {
+
         const mymap = L.map('mapid').setView([lng, lat], 13);
-        L.tileLayer(`https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}`, {
+
+        const myIcon = L.icon({
+            iconUrl: './images/icon-location.svg',
+
+            iconSize: [46, 56], // size of the icon            
+            iconAnchor: [23, 0], // point of the icon which will correspond to marker's location
+        });
+
+        L.marker([lng, lat], { icon: myIcon }).addTo(mymap);
+        L.tileLayer(`http://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}`, {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
             id: 'mapbox/streets-v11',
@@ -52,8 +61,9 @@ window.addEventListener('DOMContentLoaded', () => {
             zoomOffset: -1,
             accessToken: 'pk.eyJ1IjoidDBteSIsImEiOiJja2V2c2U2dDYwNHY4MnltZzdyeTg2MWhvIn0.RBfIhAYbId5mytJbgIVctg'
         }).addTo(mymap);
+
     }
-    drawMap();
+    // drawMap();
 
 
 });

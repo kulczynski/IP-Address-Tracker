@@ -46,7 +46,7 @@ html,
 body,
 #map {
     // height: 100%;
-    width: 100vw;
+    width: 100%;
 }
 
 #mapid {
@@ -75,8 +75,7 @@ header {
 }
 
 .header {
-    width: 100vw;
-    height: 20vh;
+    width: 100%;
     background: radial-gradient(blue, violet);
     background-image: url('../images/pattern-bg.png');
     background-repeat: no-repeat;
@@ -116,8 +115,7 @@ header {
 }
 
 .details {
-    width: 90%;
-    max-width: 25rem;
+    width: 70%;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -130,6 +128,34 @@ header {
     .details_list {
         list-style-type: none;
         padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+        gap: 2rem;
+        @media (min-width: 525px) {
+            & {
+                flex-direction: row;
+            }
+        }
+    }
+    .details_element {
+        color: $Very-Dark-Gray;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        @media (min-width: 525px) {
+            & {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                padding: 1rem;
+                border-right: 1px solid $Dark-Gray;
+            }
+            &:last-child {
+                border: none;
+            }
+        }
     }
     .details_element-header {
         text-transform: uppercase;
@@ -138,11 +164,11 @@ header {
         font-weight: 500;
         margin-bottom: .5rem;
     }
-    .details_element {
-        color: $Very-Dark-Gray;
-        font-weight: 700;
-        margin-bottom: 1rem;
-    }
+}
+
+footer {
+    background: $Very-Dark-Gray;
+    color: white;
 }
 
 .attribution {
@@ -151,5 +177,5 @@ header {
 }
 
 .attribution a {
-    color: hsl(228, 45%, 44%);
+    color: hsl(228, 39%, 61%);
 }

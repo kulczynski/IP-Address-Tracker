@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const ipInput = document.querySelector('.ip_input');
     const ipSubmit = document.querySelector('.ip_submit');
+    const mapDiv = document.querySelector('.map');
 
     const ipAddress = document.querySelector('.ipAddress')
     const location = document.querySelector('.location')
@@ -33,6 +34,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 isp.innerHTML = data.isp;
                 lat = Number(data.location.lat);
                 lng = Number(data.location.lng);
+                refreshMapDiv();
                 drawMap(lat, lng);
             })
             .catch(err => console.log(err))
@@ -63,7 +65,11 @@ window.addEventListener('DOMContentLoaded', () => {
         }).addTo(mymap);
 
     }
-    // drawMap();
+
+    // refreshing map
+    function refreshMapDiv() {
+        mapDiv.innerHTML = "<div id='mapid'></div>"
+    }
 
 
 });

@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 console.log(data);
                 ipAddress.innerHTML = data.ip;
-                location.innerHTML = data.location.city;
+                location.innerHTML = `${data.location.region}, ${data.location.city}`;
                 timezone.innerHTML = data.location.timezone;
                 isp.innerHTML = data.isp;
                 lat = Number(data.location.lat);
@@ -63,9 +63,9 @@ window.addEventListener('DOMContentLoaded', () => {
             zoomOffset: -1,
             accessToken: 'pk.eyJ1IjoidDBteSIsImEiOiJja2V2c2U2dDYwNHY4MnltZzdyeTg2MWhvIn0.RBfIhAYbId5mytJbgIVctg'
         }).addTo(mymap);
-
     }
-
+    // drawing start map
+    drawMap();
     // refreshing map
     function refreshMapDiv() {
         mapDiv.innerHTML = "<div id='mapid'></div>"

@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
         timezone.innerHTML = "loading...";
         isp.innerHTML = "loading...";
 
-        fetch(`http://geo.ipify.org/api/v1?callback=jQuery32108269691926562777_1599684328993&apiKey=${api_key}&ipAddress=${ip}`)
+        fetch(`https://geo.ipify.org/api/v1?callback=jQuery32108269691926562777_1599684328993&apiKey=${api_key}&ipAddress=${ip}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
